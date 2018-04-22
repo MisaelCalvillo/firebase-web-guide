@@ -7,6 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Guía Web de Firebase</title>
 
+  <!-- CDN Auth -->
+  <!-- <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.css" /> -->
+
+  <!-- <script src="https://www.gstatic.com/firebasejs/ui/2.7.0/firebase-ui-auth__es_419.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.7.0/firebase-ui-auth.css" /> -->
+</head>
+
+<body>
+  <h1 id="bigOne"></h1>
+
   <!-- Firebase code -->
   <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
   <script>
@@ -20,11 +31,11 @@
       messagingSenderId: "721044044043"
     };
     firebase.initializeApp(config);
+
+    var bigOne = document.getElementById('bigOne');
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => bigOne.innerText = snap.val());
   </script>
-</head>
-
-<body>
-
+  <script src="index.js"></script>
 </body>
-
 </html>
